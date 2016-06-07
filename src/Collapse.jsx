@@ -53,8 +53,22 @@ const Collapse = createClass({
     }
   },
 
-  handleClickItem(key) {
+  componentDidMount: function() {
+    if (this.props.collapseGroup) {
+	  this.props.collapseGroup.push(this);
+    }
+  },
+
+  onClickItem(key) {
     return () => {
+      if (this.props.collapseGroup) {
+        this.props.collapseGroup.forEach(function(collapse) {
+          if (collapse !== this) {
+            collapse.setState({activeKey: null});
+          }
+        });
+      }
+
       const activeKey = this._getActivityKey();
       if (this.props.accordion) {
         this.setState({

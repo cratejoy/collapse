@@ -48,9 +48,6 @@
     "react-dom":"0.14.x",
     "string.prototype.repeat": "^0.2.0"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "dependencies": {
     "classnames": "2.x",
     "rc-animate": "2.x",
